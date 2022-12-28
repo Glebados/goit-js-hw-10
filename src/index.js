@@ -13,10 +13,11 @@ refs.inputEl.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
 
 function onInput() {
   refs.listEl.innerHTML = '';
-  if (refs.inputEl.value.trim() === '') {
+  const country = refs.inputEl.value;
+  if (country === '') {
     return;
   }
-  const country = refs.inputEl.value;
+
   fetchCountries(country)
     .then(countries => {
       if (countries.length > 10) {
